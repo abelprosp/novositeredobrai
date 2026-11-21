@@ -1,5 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import AgentSolutions from './AgentSolutions.jsx';
+import Integrations from "./Integrations.jsx";
+import DataSecurity from "./DataSecurity.jsx";
 import SiteHeader from './SiteHeader.jsx';
 import SolutionPage from './SolutionPage.jsx';
 import UpplaCasePage from './UpplaCase.jsx';
@@ -179,6 +181,8 @@ function App() {
             </section>
 
             <AgentSolutions />
+            <DataSecurity />
+            <Integrations />
 
             <section className="division-section clients-section" id="clientes" aria-labelledby="clients-title">
               <div className="section-shell" data-scroll-reveal>
@@ -200,24 +204,6 @@ function App() {
           </>
         )}
 
-        <section className="contact-section" id="contato" aria-labelledby="contact-title">
-          <div className="section-shell contact-layout">
-            <div className="contact-copy" data-scroll-reveal>
-              <h2 id="contact-title">Conte sobre seu projeto</h2>
-              <p>Converse com a Redobrai sobre como agentes de IA ou soluções industriais podem ajudar sua equipe.</p>
-              <button className="button button-primary contact-trigger" type="button" aria-haspopup="dialog" aria-controls="contact-dialog" onClick={() => contactDialog.current.showModal()}>
-                Entrar em contato <Arrow />
-              </button>
-              <ul className="contact-links">
-                <li><a href="mailto:contato@redobrai.com">contato@redobrai.com</a></li>
-                <li><a href="tel:+5551995501677">(51) 99550-1677</a></li>
-              </ul>
-            </div>
-            <div className="contact-art" aria-hidden="true">
-              <img src="/assets/contato-redobrai.webp" alt="" width="870" height="780" loading="lazy" />
-            </div>
-          </div>
-        </section>
       </main>
 
       <dialog className="contact-dialog" id="contact-dialog" ref={contactDialog} aria-labelledby="contact-dialog-title">
@@ -235,14 +221,26 @@ function App() {
       </dialog>
 
       <footer className="site-footer">
-        <div className="section-shell">
-          <div className="footer-heading">
-            <a className="brand" href={page ? "/" : "#inicio"} aria-label="Redobrai, voltar ao início">
-              <img src="/assets/redobrai-logo.png" alt="Redobrai" width="203" height="70" />
-            </a>
-            <span>Português</span>
+        <section className="footer-invitation" id="contato" aria-labelledby="contact-title">
+          <div className="section-shell">
+            <h2 id="contact-title">Conte sobre seu projeto<span> para a Redobrai.</span></h2>
+            <div className="footer-actions">
+              <button className="button button-primary" type="button" aria-haspopup="dialog" aria-controls="contact-dialog" onClick={() => contactDialog.current.showModal()}>
+                Entrar em contato <Arrow />
+              </button>
+              <a className="button button-outline" href="/#solucoes">Explore as soluções <Arrow /></a>
+            </div>
           </div>
+        </section>
+        <div className="section-shell">
           <div className="footer-columns">
+            <section>
+              <h2>Sobre a Redobrai</h2>
+              <p>Desenvolvemos agentes de IA e soluções para monitorar energia, digitalizar produtos e inspecionar linhas de produção.</p>
+              <a className="brand" href={page ? "/" : "#inicio"} aria-label="Redobrai, voltar ao início">
+                <img src="/assets/redobrai-logo.png" alt="Redobrai" width="203" height="70" />
+              </a>
+            </section>
             {divisions.map(division => (
               <section key={division.id}>
                 <h2>{division.name}</h2>
@@ -265,10 +263,6 @@ function App() {
                 <li><a href="mailto:contato@redobrai.com">contato@redobrai.com</a></li>
                 <li><a href="tel:+5551995501677">(51) 99550-1677</a></li>
               </ul>
-            </section>
-            <section>
-              <h2>Sobre a Redobrai</h2>
-              <p>Desenvolvemos agentes de IA e soluções para monitorar energia, digitalizar produtos e inspecionar linhas de produção.</p>
             </section>
           </div>
         </div>
