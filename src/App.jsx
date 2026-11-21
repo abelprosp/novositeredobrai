@@ -1,4 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
+import AgentSolutions from './AgentSolutions.jsx';
 import SiteHeader from './SiteHeader.jsx';
 import SolutionPage from './SolutionPage.jsx';
 import UpplaCasePage from './UpplaCase.jsx';
@@ -17,7 +18,6 @@ const highlights = [
   ['Inspeção na produção', 'Visão computacional', '#inspecao'],
 ];
 
-const aiSolutions = divisions[0].groups.flatMap(group => group.pages);
 const [energy, engineering, quality] = divisions[1].groups.map(group => group.pages[0]);
 
 const clients = [
@@ -151,18 +151,7 @@ function App() {
                     <div className="solution-icon ai-icon" aria-hidden="true"><span /></div>
                     <h3>Redobrai IA</h3>
                     <p>Agentes de IA para atender clientes, interpretar dados e apoiar as decisões da sua equipe.</p>
-                    <details className="solution-details">
-                      <summary className="button">Explore as soluções agênticas</summary>
-                      <ul className="solution-list">
-                        {aiSolutions.map(({title, description, path}) => (
-                          <li key={title}>
-                            <h4><a href={path}>{title} <Arrow /></a></h4>
-                            <p>{description}</p>
-                          </li>
-                        ))}
-                      </ul>
-                      <a className="text-link" href="#contato">Converse sobre IA na sua empresa <Arrow /></a>
-                    </details>
+                    <a className="button button-outline agent-entry" href="#solucoes-agenticas">Explore as soluções agênticas <Arrow /></a>
                   </article>
 
                   <article className="solution-card" data-scroll-reveal id="redobrai-industria">
@@ -188,6 +177,8 @@ function App() {
                 </div>
               </div>
             </section>
+
+            <AgentSolutions />
 
             <section className="division-section clients-section" id="clientes" aria-labelledby="clients-title">
               <div className="section-shell" data-scroll-reveal>

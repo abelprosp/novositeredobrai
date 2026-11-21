@@ -509,3 +509,27 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
 @media (max-width: 720px) {
   .footer-bottom { padding-bottom: 76px; }
 }
+
+.agent-entry { margin-top: 21px; }
+.agent-section { padding-block: clamp(36px, 5vw, 80px); }
+.agent-section h2 { max-width: 21ch; margin-bottom: clamp(28px, 4vw, 60px); font-size: clamp(2.2rem, 4.3vw, 4rem); line-height: 1.04; letter-spacing: -.045em; }
+.agent-section h2 span { display: block; color: #52635b; font-weight: 300; }
+.agent-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.agent-grid article { padding: clamp(24px, 3.5vw, 56px); }
+.agent-grid article:nth-child(odd) { border-right: 1px solid var(--line); padding-left: 0; }
+.agent-grid article:nth-child(even) { padding-right: 0; }
+.agent-grid article:nth-child(n+3) { border-top: 1px solid var(--line); }
+.agent-card { display: flex; flex-direction: column; gap: 10px; height: 100%; }
+.agent-card h3 { font-size: clamp(1.18rem, 2vw, 1.65rem); letter-spacing: -.025em; }
+.agent-card h3 span { color: var(--green); font-size: .8em; }
+.agent-card:hover h3 { color: var(--green); text-decoration: underline; }
+.agent-card p { line-height: 1.55; color: var(--muted); padding-bottom: 12px; }
+.agent-visual { padding: clamp(10px, 1.5vw, 24px); margin-top: auto; border: 1px solid #e5ece6; background: linear-gradient(135deg, #f7faf7, #fff 55%, #f1f6ef); }
+.agent-visual svg { width: 100%; display: block; }
+.agent-visual text { font: 11px Ubuntu, sans-serif; fill: #24432e; stroke: none; }
+@media (max-width: 720px) {
+  .agent-grid { grid-template-columns: 1fr; }
+  .agent-grid article:nth-child(n) { border: 0; padding: 24px 0; }
+  .agent-grid article + article { border-top: 1px solid var(--line); }
+  .agent-section h2 { margin-bottom: 10px; }
+}
