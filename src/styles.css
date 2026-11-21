@@ -356,7 +356,7 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
   html { scroll-padding-top: 76px; }
   .header-inner { min-height: 64px; }
   .brand img { width: 122px; }
-  .menu-toggle { display: inline-flex; align-items: center; gap: 8px; padding: 9px; border: 0; background: white; color: var(--ink); font-weight: 700; }
+  .menu-toggle { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 9px; border: 0; background: white; color: var(--ink); font-weight: 700; }
   .menu-toggle span { font-size: 1.15rem; }
   .main-nav {
     display: none;
@@ -379,19 +379,20 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
   .mega-menu-inner { width: auto; grid-template-columns: 1fr; gap: 10px; padding: 14px; }
   .mega-menu-group { padding: 0; }
   .mega-menu-group:last-child { padding: 10px 12px; }
-  .header-cta { margin-top: 13px; }
+  .mega-menu-group a { display: flex; align-items: center; min-height: 44px; }
+  .header-cta { width: 100%; margin-top: 13px; }
 }
 @media (max-width: 720px) {
   .section-shell { width: calc(100% - 40px); }
   .detail-intro-with-image, .detail-grid { grid-template-columns: 1fr; }
   .detail-intro img { justify-self: start; }
-  .hero-inner { grid-template-columns: 1fr; gap: 18px; min-height: 0; padding-block: 52px 23px; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 24px; min-height: 0; padding-block: clamp(32px, 7vw, 48px) 0; }
   .hero h1 { font-size: clamp(2.08rem, 7.5vw, 3.2rem); }
   .hero-copy > p { margin-top: 16px; }
   .hero-actions { margin-top: 20px; }
   .hero-copy { width: 100%; }
   .hero-media { position: relative; inset: auto; width: calc(100% + 40px); margin-inline: -20px; height: min(60vw, 320px); }
-  .hero-inner { padding-bottom: 0; }
+  .hero h1 { text-wrap: balance; }
   .hero-media img { object-fit: contain; mask-image: none; }
   .hero::after { inset: auto -215px -105px auto; }
   .featured-inner { display: block; padding-block: 28px 16px; }
@@ -400,14 +401,33 @@ a:hover .arrow, button:hover .arrow { transform: translateX(3px); }
   .featured a { min-height: 0; padding: 12px 0; }
   .product-feature, .solutions-grid, .contact-layout { grid-template-columns: 1fr; }
   .product-feature img { position: static; width: 100%; height: auto; clip-path: none; padding: 0; }
-  .clients-list li { flex-basis: calc((100% - 40px) / 3); }
-  .contact-layout { gap: 26px; }
+  .clients-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .clients-list li { padding: 10px; background: white; }
+  .clients-list li + li { border: 0; }
+  .clients-list li:last-child { grid-column: span 2; }
+  .solution-details summary { width: 100%; min-height: 48px; }
+  .product-copy .text-link { min-height: 44px; }
+  .contact-form input, .contact-form textarea { font-size: 1rem; }
+  .contact-layout { gap: 0; }
   .contact-art { height: min(44vw, 240px); }
-  .contact-links { display: flex; margin-left: 0; }
+  .contact-links { display: flex; margin: 16px 0 0; gap: 4px 18px; font-size: .94rem; }
+  .contact-links a, .footer-bottom nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .footer-bottom nav { gap: 0 18px; }
 }
 @media (max-width: 480px) {
-  .clients-list li { flex-basis: calc((100% - 20px) / 2); }
-  .hero-actions .button, .hero-actions .text-link { font-size: .82rem; }
+  .clients-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hero-actions a { width: 100%; justify-content: center; text-align: center; padding-inline: 8px; }
+  .hero-actions .arrow { display: none; }
+  .footer-columns section { border-top: 1px solid #555; padding-top: 18px; }
+  .footer-columns section:first-child { border-top: 0; padding-top: 0; }
+  .footer-columns h2 { margin-bottom: 8px; }
+  .footer-columns ul { gap: 0; }
+  .footer-columns a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 360px) {
+  .hero-actions { grid-template-columns: 1fr; }
+  .contact-links { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
