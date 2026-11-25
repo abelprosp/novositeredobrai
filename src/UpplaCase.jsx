@@ -188,18 +188,9 @@ export default function UpplaCasePage() {
             <h2 id="uppla-dashboard-title">Dashboard de inspeção das tampas</h2>
             <p>Explore uma demonstração de como os dados da inspeção das tampas são visualizados.</p>
           </div>
-          <iframe
-            className="uppla-dashboard"
-            src={upplaDashboardUrl}
-            title="Dashboard demonstrativo de inspeção das tampas da Uppla"
-            width="100%"
-            height="640"
-            loading="lazy"
-            allowFullScreen
-          />
-          <p className="uppla-references">
-            <a href={upplaDashboardUrl} target="_blank" rel="noopener noreferrer">Abrir dashboard em nova aba</a>
-          </p>
+          <a className="button button-primary" href={upplaDashboardUrl} target="_blank" rel="noopener noreferrer">
+            Abrir dashboard em nova aba <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </section>
     </>
