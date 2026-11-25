@@ -2,6 +2,8 @@ import {useEffect, useRef, useState} from 'react';
 import {upplaCase} from './solutions.js';
 import {projectCaps} from './upplaMotion.js';
 
+const upplaDashboardUrl = 'https://app.thedobra.cc/embed/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXNoX2lkIjoiMTMxNWRiYWItMTI5Yi00NDZjLTgwNDEtZGQ2YTZkOTQyM2JjIiwiZXhwIjoxODAzNDA3NTgxLCJpYXQiOjE3OTU2MzE1ODIsImp0aSI6ImtOX1Y1N3JrU3BGNVMyVGc3MUU5UmhaUiIsIm9yZ19pZCI6IjlkMDlhNzUwLWMzNjEtNGNhNC05YTk5LTA1YjQyNjAyZmRhNCIsInR5cCI6ImVtYmVkIn0.oelJEefdLDiUugFDqQi70QwauMwhzX7eEIcDk1hG8S8';
+
 const duration = 12;
 const stages = [
   {start: 0, preview: 1.3, title: 'Detecção no molde', description: 'O primeiro modelo de IA identifica as tampinhas ainda no molde da injetora.'},
@@ -133,6 +135,8 @@ export default function UpplaCasePage() {
             <h1 id="case-page-title">Do molde à seleção final</h1>
             <p className="detail-description">{upplaCase.description}</p>
             <a className="button button-primary" href="#animacao">Ver a animação <span aria-hidden="true">↓</span></a>
+            {' '}
+            <a className="button button-outline" href="#dashboard">Ver o dashboard <span aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
@@ -174,6 +178,27 @@ export default function UpplaCasePage() {
             {' '}<a href="https://www.arburg.com/en/gb/product-world/injection-moulding-machines/hybrid-machines/allrounder-hidrive/">injetora ARBURG</a>, a
             {' '}<a href="https://www.dornerconveyors.com/europe/products/2200-series/2200-belted-conveyor-eu">esteira Dorner</a> e a
             {' '}<a href="https://www.baslerweb.com/en/shop/a2a2448-23gmbas/">câmera Basler</a>.
+          </p>
+        </div>
+      </section>
+
+      <section className="division-section" id="dashboard" aria-labelledby="uppla-dashboard-title">
+        <div className="section-shell">
+          <div className="section-intro">
+            <h2 id="uppla-dashboard-title">Dashboard de inspeção das tampas</h2>
+            <p>Explore uma demonstração de como os dados da inspeção das tampas são visualizados.</p>
+          </div>
+          <iframe
+            className="uppla-dashboard"
+            src={upplaDashboardUrl}
+            title="Dashboard demonstrativo de inspeção das tampas da Uppla"
+            width="100%"
+            height="640"
+            loading="lazy"
+            allowFullScreen
+          />
+          <p className="uppla-references">
+            <a href={upplaDashboardUrl} target="_blank" rel="noopener noreferrer">Abrir dashboard em nova aba</a>
           </p>
         </div>
       </section>
