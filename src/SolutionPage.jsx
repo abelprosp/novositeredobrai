@@ -1,3 +1,5 @@
+import AgentDemo from './AgentDemo.jsx';
+
 export default function SolutionPage({page}) {
   return (
     <>
@@ -21,6 +23,8 @@ export default function SolutionPage({page}) {
           </div>
         </div>
       </section>
+
+      <AgentDemo key={page.slug} slug={page.slug} />
 
       <section className="division-section detail-body" aria-labelledby="detail-body-title">
         <div className="section-shell">
